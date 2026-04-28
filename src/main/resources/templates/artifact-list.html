@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<a th:href="@{/create}">Thêm</a>
+<table class="table" border="1">
+    <thead>
+    <tr>
+        <th>ID</th>
+        <th>Name</th>
+        <th>Origin</th>
+        <th>Date</th>
+        <th>Actions</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr th:each="artifact : ${artifacts}">
+        <td th:text="${artifact.id}"></td>
+        <td th:text="${artifact.name}"></td>
+        <td th:text="${artifact.origin}"></td>
+        <td th:text="${artifact.date}"></td>
+        <td>
+            <a th:href="@{/edit/{id}(id=${artifact.id})}">Edit</a>
+            <a th:href="@{/delete/{id}(id=${artifact.id})}">Delete</a>
+        </td>
+    </tr>
+    </tbody>
+</table>
+</body>
+</html>
